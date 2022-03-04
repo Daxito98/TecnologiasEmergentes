@@ -31,7 +31,3 @@ en partes iguales entre los asistentes.
 
 En el caso de que los usuarios quieran asistir a un evento ya organizado deberán indicar si su asistencia será
 individual o vendrán acompañados. A continuación, les saltará un formulario para elegir que quieren consumir durante el evento.
-
-
-El propósito de esta plataforma web es facilitar al organizador de eventos una lista con sus participantes y sus preferencias
-gastronómicas para así hacer un cálculo aproximado del coste total de las consumiciones del evento.
