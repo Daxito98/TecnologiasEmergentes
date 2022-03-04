@@ -29,5 +29,6 @@ fecha, hora, localización, tipo, etc... Además el organizador mostrará una li
 el día del evento. También establecerá la aportación económica necesaria, en caso de sobrar se volverá a repartir
 en partes iguales entre los asistentes.
 
+
 En el caso de que los usuarios quieran asistir a un evento ya organizado deberán indicar si su asistencia será
 individual o vendrán acompañados. A continuación, les saltará un formulario para elegir que quieren consumir durante el evento.
