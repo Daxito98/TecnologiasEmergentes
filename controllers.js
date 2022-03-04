@@ -16,8 +16,8 @@ const schema = buildSchema(`
     events: [Event]
     searchUser(idUser:ID!):[User]
     searchEvent(idEvent:ID!):[Event]
-    searchUsersInEvent(idEvent:ID!):[[User]]]
-    searchEventsInUser(idUser:ID!):[[Event]]
+    searchUsersInEvent(idEvent:ID!):[User]
+    searchEventsInUser(idUser:ID!):[Event]
   }
   
   type Mutation {
