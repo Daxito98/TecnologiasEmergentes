@@ -9,8 +9,8 @@ let UserSchema = {
       familyName: 'string',
       birthDate: 'date',
       gender: 'string',
-      preferences: '[string]',
-      performerIn: '[Event]'
+      preferences: 'string[]',
+      performerIn: 'Event[]'
    }
 }
 
@@ -20,7 +20,7 @@ let EventSchema = {
   properties: {
     identifier: 'int',
     about: 'string',
-    attendee: '[User]',
+    attendee: 'User[]',
     startDate: 'date',
     location: 'string',
     duration: 'int'
@@ -39,7 +39,7 @@ if (process.argv[1] == __filename){ //TESTING PART
 
   if (process.argv.includes("--create")){ //crear la BD
 
-      Realm.deleteFile({path: './data/blogs.realm'}) //borramos base de datos si existe
+      Realm.deleteFile({path: './data/blogs.realm'})
 
       let DB = new Realm({
         path: './data/blogs.realm',
@@ -47,12 +47,13 @@ if (process.argv[1] == __filename){ //TESTING PART
       })
      
       DB.write(() => {
+          let v = []
         let user = DB.create('User', {
             identifier: 0,
             name: 'Usuario0',
-            faimilyName: 'Apellido',
-            performerIn: {},
-            birthDate: 20220304,
+            familyName: 'Apellido',
+            performerIn: v,
+            birthDate: new Date('Jul 12 2011'),
             gender: 'Hombre',
             preferences: ['Fiesta','Cine']
         })
@@ -61,9 +62,9 @@ if (process.argv[1] == __filename){ //TESTING PART
                                         identifier: 0,
                                         about: 'Cumpleaños',
                                         attendee: [],
-                                        startDate: 20220404,
+                                        startDate: new Date('Jul 12 2022'),
                                         location: 'Castellon',
-                                        duration: '30'
+                                        duration: 30
         })
 
         console.log('Inserted objects', user, event)
@@ -76,7 +77,7 @@ if (process.argv[1] == __filename){ //TESTING PART
       Realm.open({ path: './data/blogs.realm' , schema: [UserSchema, EventSchema] }).then(DB => {
         let users = DB.objects('User')
         users.forEach(x => console.log(x.name))
-        let event = DB.objectForPrimaryKey('Event', '0')
+        let event = DB.objectForPrimaryKey('Event', 0)
         if (event)
            console.log(event.about, ' in ', event.location)
         DB.close()
